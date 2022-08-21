@@ -13,11 +13,11 @@ namespace AddressBookComputation
         public string Address { get; set; }
 
         public string City { get; set; }
-        public int PhoneNumber { get; set; }
+        public double PhoneNumber { get; set; }
 
         public string Emailaddress { get; set; }
 
-        public int _PhoneNumber
+        public double _PhoneNumber
         {
             get { return PhoneNumber; }
             set
