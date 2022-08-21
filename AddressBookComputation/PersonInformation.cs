@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AddressBookComputation
 {
-    internal class PersonInformation
+    public class PersonInformation
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -17,6 +17,25 @@ namespace AddressBookComputation
 
         public string Emailaddress { get; set; }
 
+        public int _PhoneNumber
+        {
+            get { return PhoneNumber; }
+            set
+            {
+                if (value < 10)
+                {
+                    Console.WriteLine("Enter mobile number value should be 10");
+                    return;
+                }
+                else
+                {
+                    PhoneNumber = value;
+                }
+                }
+            }
+        }
+      
+
 
     }
-}
+
