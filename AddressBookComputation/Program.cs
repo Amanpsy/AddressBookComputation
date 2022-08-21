@@ -25,9 +25,11 @@ namespace AddressBookComputation
                 switch (option)
                 {
                     case 1:
-                        addressbookmanagment.Addcontacts();
-
-
+                        Console.WriteLine("Please enter unique address book name");
+                        string addressBookName = Console.ReadLine();
+                        Console.WriteLine("Please enter how many contact do you want to add under address book?");
+                        int numOfContacts = Convert.ToInt32(Console.ReadLine());
+                        addressbookmanagment.AddContacts(addressBookName, numOfContacts);
                         break;
 
                     case 2:
