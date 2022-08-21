@@ -9,57 +9,59 @@ namespace AddressBookComputation
     public class AddressBookManagment
     {
         List<PersonInformation> listofcontacts = new List<PersonInformation>();
+        private object listOfContacts;
 
         public void Addcontacts()
         {
 
             PersonInformation personInformation = new PersonInformation();
 
-                Console.WriteLine(" Please Enter your first name");
-                personInformation.FirstName = Console.ReadLine();
-                Console.WriteLine("Please Enter your last name ");
-                personInformation.LastName = Console.ReadLine();
-                Console.WriteLine("Please Enter your address");
-                personInformation.Address = Console.ReadLine();
-                Console.WriteLine("Please Enter your City ");
-                personInformation.City = Console.ReadLine();
-                Console.WriteLine("Please Enter your phone number ");
+            Console.WriteLine(" Please Enter your first name");
+            personInformation.FirstName = Console.ReadLine();
+            Console.WriteLine("Please Enter your last name ");
+            personInformation.LastName = Console.ReadLine();
+            Console.WriteLine("Please Enter your address");
+            personInformation.Address = Console.ReadLine();
+            Console.WriteLine("Please Enter your City ");
+            personInformation.City = Console.ReadLine();
+            Console.WriteLine("Please Enter your phone number ");
             personInformation.PhoneNumber = Convert.ToDouble(Console.ReadLine());
 
-                Console.WriteLine("Please Enter your Email address ");
-                personInformation.Emailaddress = Console.ReadLine();
+            Console.WriteLine("Please Enter your Email address ");
+            personInformation.Emailaddress = Console.ReadLine();
 
-                listofcontacts.Add(personInformation);
-
-
+            listofcontacts.Add(personInformation);
 
 
-            }
-            
+
+
+        }
+
         public void DisplayContacts()
         {
-            foreach(var data in listofcontacts)
+            foreach (var data in listofcontacts)
             {
-                Console.WriteLine("\nFirst name is  " + data.FirstName + "\nLast name is   "   + data.LastName + "\nAddress is    "  + data.Address  + "\nCity is   "  + data.City + "\n Phone number is  "   + data.PhoneNumber  +   "\nEmail address is   "   + data.Emailaddress) ;
+                Console.WriteLine("\nFirst name is  " + data.FirstName + "\nLast name is   " + data.LastName + "\nAddress is    " + data.Address + "\nCity is   " + data.City + "\n Phone number is  " + data.PhoneNumber + "\nEmail address is   " + data.Emailaddress);
             }
 
         }
         public void EditContacts()
         {
             Console.WriteLine("To edit the contacts enter First name for verfication");
-            string editname = Console.ReadLine() ;
+            string editname = Console.ReadLine();
 
-            foreach (var data in listofcontacts) 
+            foreach (var data in listofcontacts)
             {
-                if(data.FirstName == editname)
+                if (data.FirstName == editname)
                 {
-                
+
                     Console.WriteLine("To edit contacts enter\n1.Lastname\n2.City\n3.State\n4.Zip\n5.Mobile Number\n6.Email ID");
-                        
+
                     int option = Convert.ToInt32(Console.ReadLine());
-                    switch(option)
+                    switch (option)
                     {
-                        case 1: string lastName = Console.ReadLine();
+                        case 1:
+                            string lastName = Console.ReadLine();
                             data.LastName = lastName;
                             break;
 
@@ -72,7 +74,7 @@ namespace AddressBookComputation
                             string city = Console.ReadLine();
                             data.City = city;
 
-                          break;
+                            break;
 
                         case 4:
                             int phonenumber = Convert.ToInt32(Console.ReadLine());
@@ -90,13 +92,37 @@ namespace AddressBookComputation
 
 
                     }
-                
-                
-                }
 
+
+                }
+                else
+                {
+                    Console.WriteLine("enter valid name");
+
+                }
             }
         }
+        public void DeletePerson()
+        {
+            Console.WriteLine("To delete the contact list enter the first name");
+            string deletename = Console.ReadLine();
+
+            for (int i = 0; i < listofcontacts.Count; i++)
+            {
+                PersonInformation data = listofcontacts[i];
+                if (data.FirstName == deletename)
+                {
+                    listofcontacts.Remove(data);
+                    Console.WriteLine("You have sucessfully deleted {0}'s contact.\n", deletename);
+                }
+                else
+                {
+                    Console.WriteLine("Please enter the valid name which is present inside of the address book.\n");
+                }
+            }
+
         }
 
     }
 
+}

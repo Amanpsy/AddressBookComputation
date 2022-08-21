@@ -20,7 +20,7 @@ namespace AddressBookComputation
             int option;
             do
             {
-                Console.WriteLine("Please choose number as shown below\n1:Add Contacts \n2Display contacts \n3Edit contacts");
+                Console.WriteLine("Please choose number as shown below\n1:Add Contacts \n2:Display contacts \n3:Edit contacts \n4:Delete Contacts");
                 option = Convert.ToInt32(Console.ReadLine());
                 switch (option)
                 {
@@ -39,6 +39,7 @@ namespace AddressBookComputation
                         break;
 
                     case 4:
+                        addressbookmanagment.DeletePerson();
                         break;
 
                     default:
@@ -48,10 +49,11 @@ namespace AddressBookComputation
                 }
 
             }
-            while (option != 4);
+            while (option != 5);
                 Console.ReadLine();
 
         }
+
 
     }
 }
